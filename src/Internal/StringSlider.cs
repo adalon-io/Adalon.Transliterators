@@ -1,9 +1,6 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Runtime.CompilerServices;
-using System.Text;
+﻿using System.Runtime.CompilerServices;
 
-namespace Adalon.Transliterators.Internal
+namespace Adalon.Globalization.Transliterators.Internal
 {
     internal class StringSlider
     {
@@ -33,7 +30,7 @@ namespace Adalon.Transliterators.Internal
 
         public Char4 Char4AtCurrent => new Char4(Current, Next, CharAtOffset(2),CharAtOffset(3));
 
-#if SINCE461
+#if !NET35
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
 #endif
         public char CharAt(int position)
@@ -42,12 +39,12 @@ namespace Adalon.Transliterators.Internal
             return _string[position];
         }
 
-#if SINCE461
+#if !NET35
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
 #endif
         public char CharAtOffset(int offset) => CharAt(_index + offset);
 
-#if SINCE461
+#if !NET35
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
 #endif
         public bool MoveNext()

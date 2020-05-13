@@ -1,0 +1,19 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFrameworks>netstandard2.0;netcoreapp3.1;net48;net461;net35</TargetFrameworks>
+    <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
+    <RootNamespace>Adalon.Globalization.Transliterators</RootNamespace>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="JetBrains.Annotations" Version="2019.1.3" />
+  </ItemGroup>
+
+  
+
+  <ItemGroup>
+    <Folder Include="Russian\" />
+  </ItemGroup>
+
+</Project>

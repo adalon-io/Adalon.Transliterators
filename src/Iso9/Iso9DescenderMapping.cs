@@ -1,4 +1,4 @@
-﻿namespace Adalon.Transliterators
+﻿namespace Adalon.Globalization.Transliterators
 {
     public enum Iso9DescenderMapping
     {

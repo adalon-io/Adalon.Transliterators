@@ -1,9 +1,6 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Security;
-using System.Text;
+﻿using System.Security;
 
-namespace Adalon.Transliterators.Internal
+namespace Adalon.Globalization.Transliterators.Internal
 {
     internal readonly struct Char3
     {
@@ -100,25 +97,25 @@ namespace Adalon.Transliterators.Internal
 
         public bool IsMatch(Char3 other)
         {
-            return (this.C0 == other.C0 || this.C0 == '\0')
-                   && (this.C1 == other.C1 || this.C1 == '\0')
-                   && (this.C2 == other.C2 || this.C2 == '\0');
+            return (C0 == other.C0 || C0 == '\0')
+                   && (C1 == other.C1 || C1 == '\0')
+                   && (C2 == other.C2 || C2 == '\0');
         }
 
         [SecuritySafeCritical]
         public override unsafe string ToString()
         {
-            fixed (char* ptr = &this._c0)
+            fixed (char* ptr = &_c0)
             {
-                return new string(ptr, 0, this.Lenth);
+                return new string(ptr, 0, Lenth);
             }
         }
 
-        public Char C0 => _c0;
+        public char C0 => _c0;
 
-        public Char C1 => _c1;
+        public char C1 => _c1;
 
-        public Char C2 => _c2;
+        public char C2 => _c2;
 
         public int Lenth => _length;
     }

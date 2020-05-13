@@ -1,11 +1,8 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using Adalon.Transliterators.Internal;
+﻿using Adalon.Globalization.Transliterators.Internal;
 
-namespace Adalon.Transliterators
+namespace Adalon.Globalization.Transliterators
 {
-    public class Iso9Transliterator:ITransliterator
+    public class Iso9Transliterator : ITransliterator
     {
         private readonly Iso9TransliterationOptions _options;
 
@@ -14,7 +11,7 @@ namespace Adalon.Transliterators
             _options = options;
         }
 
-        public Iso9Transliterator():this(Iso9TransliterationOptions.Default)
+        public Iso9Transliterator() : this(Iso9TransliterationOptions.Default)
         { }
 
         public TargetLanguage TargetLanguage => TargetLanguage.Cyrillic;
@@ -63,12 +60,12 @@ namespace Adalon.Transliterators
         }
 
 
-        
+
 
 
 
 
     }
 
-    
+
 }

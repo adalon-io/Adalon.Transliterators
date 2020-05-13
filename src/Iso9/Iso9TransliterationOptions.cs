@@ -1,4 +1,6 @@
-﻿namespace Adalon.Transliterators
+﻿
+
+namespace Adalon.Globalization.Transliterators
 {
     public class Iso9TransliterationOptions
     {
@@ -10,6 +12,6 @@
 
         public Iso9DescenderMapping DescenderMapping { get; set; }
 
-        public Iso9UmlautAndMacronMapping UmlautAndMacronMapping {get; set; }
+        public Iso9UmlautAndMacronMapping UmlautAndMacronMapping { get; set; }
     }
 }

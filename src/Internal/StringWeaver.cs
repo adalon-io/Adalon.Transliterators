@@ -1,10 +1,9 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Runtime.CompilerServices;
-using System.Text;
 using JetBrains.Annotations;
 
-namespace Adalon.Transliterators.Internal
+namespace Adalon.Globalization.Transliterators.Internal
 {
     internal class StringWeaver
     {
@@ -16,8 +15,8 @@ namespace Adalon.Transliterators.Internal
         public StringWeaver([NotNull]string original, double expansionFactor)
         {
             Slider = new StringSlider(original);
-            _chunks = new List<char[]>(2); 
-            var chunkLength = Math.Max((int) Math.Ceiling(original.Length * expansionFactor), 4);
+            _chunks = new List<char[]>(2);
+            var chunkLength = Math.Max((int)Math.Ceiling(original.Length * expansionFactor), 4);
             _chunk = new char[chunkLength];
             _currentIndex = -1;
             _chunksOffset = 0;
@@ -36,7 +35,7 @@ namespace Adalon.Transliterators.Internal
             }
         }
 
-#if SINCE461
+#if !NET35
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
 #endif
         private unsafe void AppendChar(char c)
@@ -63,7 +62,7 @@ namespace Adalon.Transliterators.Internal
         public char Next => CharAt(_chunksOffset + _currentIndex + 1);
 
 
-#if SINCE461
+#if !NET35
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
 #endif
         public char CharAt(int position)
@@ -75,7 +74,7 @@ namespace Adalon.Transliterators.Internal
             }
 
             int offset = _chunksOffset;
-            for (int i = _chunks.Count -1; i >=0 ; i--)
+            for (int i = _chunks.Count - 1; i >= 0; i--)
             {
                 var chunk = _chunks[i];
                 offset -= chunk.Length;
@@ -85,13 +84,13 @@ namespace Adalon.Transliterators.Internal
                 }
             }
 
-            return '\0'; 
+            return '\0';
         }
 
         public char CharAtOffset(int offset) => CharAt(_currentIndex + offset);
 
 
-#if SINCE461
+#if !NET35
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
 #endif
         private unsafe char CharAtPos(char[] arr, int idx)
@@ -126,18 +125,18 @@ namespace Adalon.Transliterators.Internal
 
         public string Weave()
         {
-            if (_currentIndex <0) return string.Empty;
-            var result = new char[_chunksOffset+_currentIndex+1];
+            if (_currentIndex < 0) return string.Empty;
+            var result = new char[_chunksOffset + _currentIndex + 1];
 
             var offset = 0;
             foreach (var chunk in _chunks)
             {
-                Buffer.BlockCopy(chunk,0,result,offset,chunk.Length*sizeof(char));
-                offset += chunk.Length*sizeof(char);
+                Buffer.BlockCopy(chunk, 0, result, offset, chunk.Length * sizeof(char));
+                offset += chunk.Length * sizeof(char);
             }
 
             Buffer.BlockCopy(_chunk, 0, result, offset,
-                (_currentIndex + 1)*sizeof(char));
+                (_currentIndex + 1) * sizeof(char));
             return new string(result);
         }
     }

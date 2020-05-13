@@ -1,9 +1,7 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.Security;
-using System.Text;
 
-namespace Adalon.Transliterators.Internal
+namespace Adalon.Globalization.Transliterators.Internal
 {
     internal readonly struct Char4
     {

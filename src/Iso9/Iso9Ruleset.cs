@@ -1,12 +1,12 @@
 ﻿using System;
 using System.Collections.Generic;
-using Adalon.Transliterators.Internal;
+using Adalon.Globalization.Transliterators.Internal;
 
-namespace Adalon.Transliterators
+namespace Adalon.Globalization.Transliterators
 {
     internal static class Iso9Ruleset
     {
-        
+
 #if !NET35
         private static readonly Lazy<Dictionary<char, FrugalLocalList<Iso9Rule>>> RulesLazy =
             new Lazy<Dictionary<char, FrugalLocalList<Iso9Rule>>>(BuildRules);
@@ -81,7 +81,7 @@ namespace Adalon.Transliterators
             var result = new Dictionary<char, FrugalLocalList<Iso9Rule>>();
             for (int i = 0; i < regular.Length; i += 2)
             {
-                var rule = new Iso9Rule(regular[i], regular[i + 1], default(Char3), false, false);
+                var rule = new Iso9Rule(regular[i], regular[i + 1], default, false, false);
                 if (!result.ContainsKey(rule.From.C0)) result[rule.From.C0] = new FrugalLocalList<Iso9Rule>();
                 var lst = result[rule.From.C0];
                 lst.Add(rule);

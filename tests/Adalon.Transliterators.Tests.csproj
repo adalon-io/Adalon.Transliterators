@@ -1,10 +1,11 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
   <PropertyGroup>
-    <TargetFrameworks>netcoreapp3.1;netcoreapp2.1;net472;net461;net40;net35</TargetFrameworks>
+    <TargetFrameworks>netcoreapp3.1;net48;net35</TargetFrameworks>
     <IsPackable>false</IsPackable>
+    <RootNamespace>Adalon.Globalization.Transliterators.Tests</RootNamespace>
   </PropertyGroup>
   <ItemGroup>
-    <ProjectReference Include="..\Adalon.Transliterators\Adalon.Transliterators.csproj" />
+    <ProjectReference Include="..\src\Adalon.Transliterators.csproj" />
   </ItemGroup>
   <ItemGroup>
     <PackageReference Include="nunit" Version="3.12.0" />

@@ -1,8 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
-
-namespace Adalon.Transliterators.Internal
+﻿namespace Adalon.Globalization.Transliterators.Internal
 {
     internal class IdentityTransliterator
     {

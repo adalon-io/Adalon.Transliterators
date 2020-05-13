@@ -2,9 +2,8 @@
 using System.Collections;
 using System.Collections.Generic;
 using System.Runtime.CompilerServices;
-using System.Text;
 
-namespace Adalon.Transliterators.Internal
+namespace Adalon.Globalization.Transliterators.Internal
 {
     internal struct FrugalLocalList<T> : IEnumerable<T>
     {
@@ -20,7 +19,7 @@ namespace Adalon.Transliterators.Internal
 
         public int Count
         {
-#if SINCE461
+#if !NET35
             [MethodImpl(MethodImplOptions.AggressiveInlining)]
 #endif
             get

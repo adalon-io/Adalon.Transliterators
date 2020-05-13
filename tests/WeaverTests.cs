@@ -1,12 +1,11 @@
 ﻿using System;
 using System.Diagnostics;
 using System.Text;
-using Adalon.Transliterators.Internal;
+using Adalon.Globalization.Transliterators.Internal;
 using NUnit.Framework;
 
-namespace Adalon.Transliterators.Tests
+namespace Adalon.Globalization.Transliterators.Tests
 {
-    
     public class WeaverTests
     {
         [TestCase("")]
@@ -15,9 +14,7 @@ namespace Adalon.Transliterators.Tests
         [TestCase("ABCDEFGHIJKLMNOPQ")]
         public void Identity(string source)
         {
-            var id = new IdentityTransliterator();
-            var sb = new StringBuilder();
-            
+            var id = new IdentityTransliterator();            
             Assert.AreEqual(source,id.Translit(source));
         }
 
@@ -40,23 +37,5 @@ namespace Adalon.Transliterators.Tests
             var po = new PlusOneTransliterator();
             Assert.AreEqual(expected, po.Translit(source));
         }
-
-        
-
-        [Test]
-        public void TestTest()
-        {
-            var iso9 = new Iso9Transliterator();
-            var translit = iso9.Transliterate(@"Славься, Отечество наше свободное,
-Братских народов союз вековой,
-Предками данная мудрость народная!
-Славься, страна! Мы гордимся тобой!");
-            Assert.AreEqual(@"Slavʹsâ, Otečestvo naše svobodnoe,
-Bratskih narodov soûz vekovoj,
-Predkami dannaâ mudrostʹ narodnaâ!
-Slavʹsâ, strana! My gordimsâ toboj!",translit);
-        }
-
-       
     }
 }
