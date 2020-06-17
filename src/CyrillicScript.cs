@@ -1,8 +1,8 @@
 ﻿namespace Adalon.Globalization.Transliterators
 {
-    public enum TargetLanguage
+    public enum CyrillicScript
     {
-        Cyrillic,
+        GeneralCyrillic,
         ChurchSlavonic,
         Bulgarian,
         Russian,

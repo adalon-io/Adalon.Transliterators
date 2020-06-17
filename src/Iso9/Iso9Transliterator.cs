@@ -14,7 +14,7 @@ namespace Adalon.Globalization.Transliterators
         public Iso9Transliterator() : this(Iso9TransliterationOptions.Default)
         { }
 
-        public TargetLanguage TargetLanguage => TargetLanguage.Cyrillic;
+        public CyrillicScript CyrillicScript => CyrillicScript.GeneralCyrillic;
 
         public string Transliterate(string source)
         {
@@ -53,6 +53,7 @@ namespace Adalon.Globalization.Transliterators
                 else
                 {
                     weaver.Append(weaver.Slider.Current);
+                    
                 }
             }
 
