@@ -34,10 +34,7 @@ namespace Adalon.Globalization.Transliterators.Internal
                 AppendChar(s[(int)i]);
             }
         }
-
-#if !NET35
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
-#endif
         private unsafe void AppendChar(char c)
         {
             if (_currentIndex < _chunk.Length - 1)
@@ -62,9 +59,7 @@ namespace Adalon.Globalization.Transliterators.Internal
         public char Next => CharAt(_chunksOffset + _currentIndex + 1);
 
 
-#if !NET35
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
-#endif
         public char CharAt(int position)
         {
             if (position < 0 || position > _chunksOffset + _currentIndex) return '\0';
@@ -90,9 +85,7 @@ namespace Adalon.Globalization.Transliterators.Internal
         public char CharAtOffset(int offset) => CharAt(_currentIndex + offset);
 
 
-#if !NET35
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
-#endif
         private unsafe char CharAtPos(char[] arr, int idx)
         {
             fixed (char* ptr = &_chunk[0])

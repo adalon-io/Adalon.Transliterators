@@ -19,9 +19,7 @@ namespace Adalon.Globalization.Transliterators.Internal
 
         public int Count
         {
-#if !NET35
             [MethodImpl(MethodImplOptions.AggressiveInlining)]
-#endif
             get
             {
                 if (_list == Sentinel) return 1;

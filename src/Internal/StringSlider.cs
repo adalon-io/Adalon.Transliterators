@@ -30,23 +30,17 @@ namespace Adalon.Globalization.Transliterators.Internal
 
         public Char4 Char4AtCurrent => new Char4(Current, Next, CharAtOffset(2),CharAtOffset(3));
 
-#if !NET35
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
-#endif
         public char CharAt(int position)
         {
             if (position < 0 || position >= _string.Length) return '\0';
             return _string[position];
         }
 
-#if !NET35
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
-#endif
         public char CharAtOffset(int offset) => CharAt(_index + offset);
 
-#if !NET35
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
-#endif
         public bool MoveNext()
         {
             _index++;
